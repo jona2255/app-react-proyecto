@@ -1,16 +1,16 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Nav } from 'react-bootstrap';
+import { Carousel, Nav } from 'react-bootstrap';
 
 function App() {
   return (
     <div>
 
-      <header>
-        <Nav className="navbar navbar-expand-lg navbar-dark d-none d-lg-block navbar-zindex">
-          <div className="container-fluid">
+      <header >
+        <Nav className="navbar navbar-expand-lg navbar-dark d-none d-block navbar-zindex">
+          <div className="container">
             <a className="navbar-brand nav-link" target="_blank" href="https://mdbootstrap.com/docs/standard/" rel="noreferrer">
-              <strong>MDB</strong>
+              <strong>ONGEITOR</strong>
             </a>
             <button className="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
               aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,60 +23,52 @@ function App() {
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow noreferrer"
-                    target="_blank">Learn Bootstrap 5</a>
+                    target="_blank">Listado ONG</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="https://mdbootstrap.com/docs/standard/" target="_blank" rel="noreferrer">Download MDB UI KIT</a>
+                  <a className="nav-link" href="https://mdbootstrap.com/docs/standard/" target="_blank" rel="noreferrer">Contacto</a>
                 </li>
               </ul>
             </div>
           </div>
         </Nav>
 
-        <div className="intro-carousel carousel slide carousel-fade shadow-2-strong" data-mdb-ride="carousel">
-          <ol className="carousel-indicators">
-            <li className="active"></li>
-          </ol>
+        <Carousel fade interval={5000}>
+          <Carousel.Item  >
+            <img
+              src="https://mdbootstrap.com/img/Photos/Others/images/76.jpg"
+              alt="First slide"
+              className="d-block w-100 csel"
+            />
+            <Carousel.Caption >
+              <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="https://mdbootstrap.com/img/Photos/Others/images/76.jpg"
+              alt="Second slide"
+            />
+            <Carousel.Caption>
+              <h3>Second slide label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="https://mdbootstrap.com/img/Photos/Others/images/76.jpg"
+              alt="Third slide"
+            />
+            <Carousel.Caption>
+              <h3>Third slide label</h3>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
 
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <div className="mask h-100" style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}>
-                <div className="d-flex justify-content-center align-items-center h-100">
-                  <div className="text-white text-center">
-                    <h1 className="mb-3">Learn Bootstrap 5 with MDB</h1>
-                    <h5 className="mb-4">Best & free guide of responsive web design</h5>
-                    <a className="btn btn-outline-light btn-lg m-2" href="https://www.youtube.com/watch?v=c9B4TPnak1A"
-                      role="button" rel="nofollow noreferrer" target="_blank">Start tutorial</a>
-                    <a className="btn btn-outline-light btn-lg m-2" href="https://mdbootstrap.com/docs/standard/"
-                      target="_blank" role="button" rel="noreferrer">Download MDB UI KIT</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="carousel-item">
-              <div className="mask carousel-background">
-                <div className="d-flex justify-content-center align-items-center h-100">
-                  <div className="text-white text-center">
-                    <h2>And cover it with any mask</h2>
-                    <a className="btn btn-outline-light btn-lg m-2"
-                      href="https://mdbootstrap.com/docs/standard/content-styles/masks/" target="_blank" role="button" rel="noreferrer">Learn
-                  about masks</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <a className="carousel-control-prev" href="#introCarousel" role="button" data-mdb-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="sr-only">Previous</span>
-          </a>
-          <a className="carousel-control-next" href="#introCarousel" role="button" data-mdb-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="sr-only">Next</span>
-          </a>
-        </div>
       </header >
 
       <main className="mt-5">
