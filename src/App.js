@@ -1,74 +1,14 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Carousel, Nav } from 'react-bootstrap';
+import NavbarHeader from './components/navbar';
+import CarouselHeader from './components/carousel';
 
 function App() {
   return (
     <div>
-
       <header >
-        <Nav className="navbar navbar-expand-lg navbar-dark d-none d-block navbar-zindex">
-          <div className="container">
-            <a className="navbar-brand nav-link" target="_blank" href="https://mdbootstrap.com/docs/standard/" rel="noreferrer">
-              <strong>ONGEITOR</strong>
-            </a>
-            <button className="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
-              aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
-              <i className="fas fa-bars"></i>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarExample01">
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                <li className="nav-item active">
-                  <a className="nav-link" aria-current="page" href="#intro">Home</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow noreferrer"
-                    target="_blank">Listado ONG</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="https://mdbootstrap.com/docs/standard/" target="_blank" rel="noreferrer">Contacto</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </Nav>
-
-        <Carousel fade interval={5000}>
-          <Carousel.Item  >
-            <img
-              src="https://mdbootstrap.com/img/Photos/Others/images/76.jpg"
-              alt="First slide"
-              className="d-block w-100 csel"
-            />
-            <Carousel.Caption >
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="https://mdbootstrap.com/img/Photos/Others/images/76.jpg"
-              alt="Second slide"
-            />
-            <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="https://mdbootstrap.com/img/Photos/Others/images/76.jpg"
-              alt="Third slide"
-            />
-            <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
-
+        <NavbarHeader />
+        <CarouselHeader />
       </header >
 
       <main className="mt-5">
