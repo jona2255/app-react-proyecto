@@ -4,9 +4,10 @@ import FormContact from "../components/FormContact";
 const Contact = () => {
   return (
     <section className="mb-5">
-      <h4 className="mb-5 text-center"><strong>Facilis consequatur eligendi</strong></h4>
+      <h1 className="mb-5 text-center">Contacta con nosotros</h1>
       <Row className=" d-flex justify-content-center">
         <Col md={6}>
+          <p className="mb-4">Si quieres que tu organización esté en esta web, o si tienes cualquier duda, contacta con nosotros a través de este formulario.</p>
           <FormContact />
         </Col>
       </Row>
