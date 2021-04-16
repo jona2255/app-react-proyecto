@@ -11,7 +11,7 @@ import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <div>
+    <Router>
       <header >
         <NavbarHeader />
         <CarouselHeader />
@@ -19,27 +19,23 @@ function App() {
 
       <main className="mt-5">
         <Container >
-          <Router>
-            <Switch>
-              <Route path="/" exact>
-                <HomePage />
-              </Route>
-              <Route path="/listado-ongs" exact>
-                <ListOng />
-              </Route>
-              <Route path="/contacto" exact>
-                <Contact />
-              </Route>
-              <Route path="*" exact>
-                <NotFound />
-              </Route>
-            </Switch>
-          </Router>
+          <Switch>
+            <Route path="/" exact>
+              <HomePage />
+            </Route>
+            <Route path="/listado-ongs" exact>
+              <ListOng />
+            </Route>
+            <Route path="/contacto" exact>
+              <Contact />
+            </Route>
+            <Route path="*" exact>
+              <NotFound />
+            </Route>
+          </Switch>
         </Container>
-
-
       </main>
-    </div>
+    </Router>
   );
 }
 
