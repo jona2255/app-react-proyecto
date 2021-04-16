@@ -20,3 +20,7 @@
 .navbar-zindex{
   z-index: 2000;
 }
+
+.navbar.borrado-padding, .navbar .borrado-padding{
+  padding-top: 0;
+}
