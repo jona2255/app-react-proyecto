@@ -24,3 +24,6 @@
 .navbar.borrado-padding, .navbar .borrado-padding{
   padding-top: 0;
 }
+.negrita{
+  font-weight: bold;
+}
