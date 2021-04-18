@@ -12,6 +12,6 @@ const Contact = () => {
         </Col>
       </Row>
     </section>
-  )
-}
+  );
+};
 export default Contact;

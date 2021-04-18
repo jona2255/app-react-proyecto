@@ -1,4 +1,4 @@
-import { Carousel } from "react-bootstrap"
+import { Carousel } from "react-bootstrap";
 
 const CarouselHeader = () => {
   return (
@@ -27,7 +27,7 @@ const CarouselHeader = () => {
         />
       </Carousel.Item>
     </Carousel>
-  )
-}
+  );
+};
 
 export default CarouselHeader;
