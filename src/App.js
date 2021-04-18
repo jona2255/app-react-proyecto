@@ -1,13 +1,13 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import NavbarHeader from './components/Navbar';
-import CarouselHeader from './components/Carousel';
-import { Container, } from 'react-bootstrap';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import NavbarHeader from "./components/Navbar";
+import CarouselHeader from "./components/Carousel";
+import { Container, } from "react-bootstrap";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import HomePage from './pages/HomePage';
-import ListOng from './pages/ListOng';
-import Contact from './pages/Contact';
-import NotFound from './pages/NotFound';
+import HomePage from "./pages/HomePage";
+import ListOng from "./pages/ListOng";
+import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
