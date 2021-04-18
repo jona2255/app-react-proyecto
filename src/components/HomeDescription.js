@@ -1,4 +1,4 @@
-import { Col, Row } from "react-bootstrap"
+import { Col, Row } from "react-bootstrap";
 
 const HomeDescription = () => {
   return (
@@ -24,7 +24,7 @@ const HomeDescription = () => {
         </p>
       </Col>
     </Row>
-  )
-}
+  );
+};
 
 export default HomeDescription;

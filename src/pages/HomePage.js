@@ -14,7 +14,7 @@ const HomePage = () => {
         <ListOds />
       </section>
     </>
-  )
-}
+  );
+};
 
 export default HomePage;
