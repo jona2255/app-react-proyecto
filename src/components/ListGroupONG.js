@@ -13,7 +13,7 @@ const ListGroupONG = () => {
       <ListGroup.Item>
         {
           datos && datos.datos.map(ongs => (
-            <ItemList ongs={ongs}></ItemList>
+            <ItemList key={ongs._id} ongs={ongs}></ItemList>
           ))
         }
       </ListGroup.Item>
