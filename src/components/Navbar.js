@@ -2,7 +2,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 
 const NavbarHeader = () => {
   return (
-    <Navbar className="navbar navbar-expand-lg navbar-dark d-none d-block navbar-zindex borrado-padding">
+    <Navbar className="navbar navbar-expand-lg navbar-dark d-none d-block navbar-zindex borrado-padding" style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}>
       <Container>
         <Navbar.Brand className="borrado-padding">
           <Nav.Link href="/">ONGeitor</Nav.Link>
