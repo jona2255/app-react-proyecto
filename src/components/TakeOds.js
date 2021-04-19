@@ -21,7 +21,7 @@ const TakeOds = () => {
     ));
   }
   return (
-    <section className="pagina" data-path="listados">
+    <>
       <label>Buscar por ODS</label>
       {
         datos &&
@@ -32,7 +32,7 @@ const TakeOds = () => {
           labelledBy="Selecciona"
         />
       }
-    </section>
+    </>
   );
 };
 
