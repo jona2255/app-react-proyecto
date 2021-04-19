@@ -3,20 +3,20 @@ import PropTypes from "prop-types";
 
 const ItemList = props => {
   const { ongs } = props;
-  const { _id, logo, nombre, direccion, telefono, correo } = ongs;
+  const { logo, nombre, direccion, telefono, correo } = ongs;
   return (
-    <Card key={_id}>
+    <Card>
       <Card.Img variant="top" src={logo} />
       <Card.Body>
         <Card.Title>{nombre}</Card.Title>
         <Card.Text>
-          {
-            <div>
-              <p>{direccion}</p>
-              <p>{telefono}</p>
-              <p>{correo}</p>
-            </div>
-          }
+          {direccion}
+        </Card.Text>
+        <Card.Text>
+          {telefono}
+        </Card.Text>
+        <Card.Text>
+          {correo}
         </Card.Text>
       </Card.Body>
     </Card>
