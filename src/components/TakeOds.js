@@ -10,7 +10,14 @@ const TakeOds = () => {
 
   const [selected, setSelected] = useState([]);
 
-
+  const traduccion = {
+    "allItemsAreSelected": "Seleccionados todos los ODS",
+    "clearSearch": "Limpiar Busqueda",
+    "noOptions": "Sin Opciones",
+    "search": "Busqueda",
+    "selectAll": "Seleccionar Todo",
+    "selectSomeItems": "Seleccionar..."
+  };
   let listaOds = [];
   if (datos) {
     listaOds = datos.datos.map(ods => (
@@ -26,6 +33,7 @@ const TakeOds = () => {
       {
         datos &&
         <MultiSelect
+          overrideStrings={traduccion}
           options={listaOds}
           value={selected}
           onChange={setSelected}
