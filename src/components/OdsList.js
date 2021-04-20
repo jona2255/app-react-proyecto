@@ -17,7 +17,7 @@ const ListOds = () => {
           datos
           && datos.datos.map(ods => (
             <Card key={ods._id}>
-              <Card.Img variant="top" src={ods.imagen} />
+              <Card.Img variant="top" src="https://firebasestorage.googleapis.com/v0/b/ongeitor.appspot.com/o/ods%2Ffin_pobreza.svg?alt=media" />
               <Card.Body>
                 <Card.Title>{ods.imagen}</Card.Title>
                 <Card.Text>
