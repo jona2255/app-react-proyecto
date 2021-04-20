@@ -1,20 +1,27 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useFetch } from "../hooks/useFetch";
 import { Dropdown } from "react-bootstrap";
+import ListOngContext from "../contexts/ListOngContext";
 
 const ListProvincia = () => {
 
-  const { datos, pideDatos } = useFetch();
-  useEffect(() => {
-    pideDatos(`${process.env.REACT_APP_API}ongs`);
-  }, [pideDatos]);
+  const { datos, setProvinciaBusqueda } = useContext(ListOngContext);
+  const [provincias, setProvincias] = useState();
+  const buscarProvincia = provincia => {
+    setProvinciaBusqueda(`provincia=${provincia}`);
+  };
 
   const enviarProvincia = (e) => {
     e.preventDefault();
     setProvincia(e.target.textContent);
+    buscarProvincia(e.target.textContent);
   };
 
   const [provincia, setProvincia] = useState();
+  if (datos && !provincias) {
+    setProvincias([...new Set(datos.datos.map(ong => ong.provincia))]);
+  }
+
   return (
     <>
       <label>Buscar por Provincia</label>
@@ -26,8 +33,8 @@ const ListProvincia = () => {
         </Dropdown.Toggle>
         <Dropdown.Menu>
           {
-            datos && datos.datos.map(ong => (
-              <Dropdown.Item key={ong._id} onClick={enviarProvincia} >{ong.provincia}</Dropdown.Item>
+            provincias && provincias.map(ong => (
+              <Dropdown.Item key={ong} onClick={enviarProvincia} >{ong}</Dropdown.Item>
             ))
           }
         </Dropdown.Menu>

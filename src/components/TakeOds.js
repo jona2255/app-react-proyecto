@@ -1,14 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import MultiSelect from "react-multi-select-component";
+import ListOngContext from "../contexts/ListOngContext";
 import { useFetch } from "../hooks/useFetch";
 
 const TakeOds = () => {
+  const { setOdsBusqueda } = useContext(ListOngContext);
+
   const { datos, pideDatos } = useFetch();
   useEffect(() => {
     pideDatos(`${process.env.REACT_APP_API}ods`);
   }, [pideDatos]);
 
   const [selected, setSelected] = useState([]);
+
+  const filtrarOds = e => {
+    setSelected(e);
+    setOdsBusqueda(`ods=${e.map(ods => ods.value)}`);
+  };
 
   const traduccion = {
     "allItemsAreSelected": "Seleccionados todos los ODS",
@@ -36,7 +44,7 @@ const TakeOds = () => {
           overrideStrings={traduccion}
           options={listaOds}
           value={selected}
-          onChange={setSelected}
+          onChange={filtrarOds}
           labelledBy="Selecciona"
         />
       }
