@@ -1,10 +1,18 @@
 import { Card, Col, Row } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
 const ItemList = props => {
   const { ongs } = props;
   const { logo, nombre, direccion, telefono, correo } = ongs;
+
+  const history = useHistory();
+  const irOng = () => {
+    history.push(`/ong/${props.ongs._id}`);
+
+  };
+
   return (
-    <Card className="mt-3 mb-3 pt-3 pb-3">
+    <Card className="mt-3 mb-3 pt-3 pb-3" onClick={irOng}>
       <Row>
         <Col md={3}>
           <Card.Img
