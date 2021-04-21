@@ -4,28 +4,57 @@ import MultiSelect from "react-multi-select-component";
 import { useFetch } from "../hooks/useFetch";
 
 const FormOng = () => {
-  const submitForm = e => {
-    console.log(e);
+  const submitForm = async e => {
+    e.preventDefault();
+    const resp = await fetch("https://api-proyecto-nodejs.herokuapp.com/ongs/ong", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(datosFormulario)
+    });
   };
   const [datosFormulario, setDatosFormulario] = useState({
     nombre: null,
-    apellidos: null,
-    email: null,
-    consulta: null
+    descripcion: null,
+    direccion: null,
+    codigo_postal: null,
+    telefono: null,
+    correo: null,
+    pagina_web: null,
+    ods: null,
+    logo: null,
+    provincia: null,
+    active: false
   });
   const cambiarValores = e => {
+    console.log(e);
     switch (e.target.name) {
-      case "nombreContacto": setDatosFormulario({ ...datosFormulario, nombre: e.target.value });
+      case "nombreOng": setDatosFormulario({ ...datosFormulario, nombre: e.target.value });
         break;
-      case "apellidoContacto": setDatosFormulario({ ...datosFormulario, apellidos: e.target.value });
+      case "direccionOng": setDatosFormulario({ ...datosFormulario, direccion: e.target.value });
         break;
-      case "emailContacto": setDatosFormulario({ ...datosFormulario, email: e.target.value });
+      case "provinciaOng": setDatosFormulario({ ...datosFormulario, provincia: e.target.value });
         break;
-      case "consultaContacto": setDatosFormulario({ ...datosFormulario, consulta: e.target.value });
+      case "codigoPostalOng": setDatosFormulario({ ...datosFormulario, codigo_postal: e.target.value });
+        break;
+      case "telefonoOng": setDatosFormulario({ ...datosFormulario, telefono: e.target.value });
+        break;
+      case "emailOng": setDatosFormulario({ ...datosFormulario, correo: e.target.value });
+        break;
+      case "webOng": setDatosFormulario({ ...datosFormulario, pagina_web: e.target.value });
+        break;
+      case "descripcionOng": setDatosFormulario({ ...datosFormulario, descripcion: e.target.value });
+        break;
+      case "logoOng": setDatosFormulario({ ...datosFormulario, logo: e.target.value });
         break;
       default:
         break;
     }
+  };
+
+  const seleccionarOds = (e) => {
+    setDatosFormulario({ ...datosFormulario, ods: e });
   };
 
   // A partir de aquí, es para el multiselector de los ods
@@ -36,7 +65,6 @@ const FormOng = () => {
 
   // Aquí se guardan los ods seleccionados
   const [selected, setSelected] = useState([]);
-
   const traduccion = {
     "allItemsAreSelected": "Seleccionados todos los ODS",
     "clearSearch": "Limpiar Busqueda",
@@ -71,17 +99,17 @@ const FormOng = () => {
           <Form.Control type="text" id="provinciaOng" name="provinciaOng" className="form-control" onChange={cambiarValores} />
         </Col>
         <Col className="form-outline" md={4}>
-          <Form.Label className="form-label" htmlFor="codigoPostal">Código Postal</Form.Label>
-          <Form.Control type="text" id="codigoPostal" name="codigoPostal" className="form-control" onChange={cambiarValores} />
+          <Form.Label className="form-label" htmlFor="codigoPostalOng">Código Postal</Form.Label>
+          <Form.Control type="text" id="codigoPostalOng" name="codigoPostalOng" className="form-control" onChange={cambiarValores} />
         </Col>
       </Row>
       <Form.Group>
         <Form.Label className="form-label" htmlFor="telefonoOng">Teléfono</Form.Label>
         <Form.Control type="text" id="telefonoOng" name="telefonoOng" className="form-control" onChange={cambiarValores} />
       </Form.Group>
-      <Form.Group controlId="emailContacto">
+      <Form.Group controlId="emailOng">
         <Form.Label>Email</Form.Label>
-        <Form.Control name="emailContacto" type="email" onChange={cambiarValores} />
+        <Form.Control name="emailOng" type="email" onChange={cambiarValores} />
       </Form.Group>
       <Form.Group >
         <Form.Label className="form-label" htmlFor="webOng">Página Web</Form.Label>
@@ -92,10 +120,11 @@ const FormOng = () => {
         {
           ods ?
             <MultiSelect
+              name="odsONG"
               overrideStrings={traduccion}
               options={listaOds}
               value={selected}
-              onChange={setSelected}
+              onChange={seleccionarOds}
               labelledBy="Selecciona"
             /> :
             <MultiSelect
@@ -105,6 +134,9 @@ const FormOng = () => {
       <Form.Group controlId="contenidoContacto">
         <Form.Label>Descripción</Form.Label>
         <Form.Control name="descripcionOng" as="textarea" rows={3} onChange={cambiarValores} />
+      </Form.Group>
+      <Form.Group>
+        <Form.File id="logoOng" name="logoOng" label="Logo o imagen de la organización" onChange={cambiarValores} />
       </Form.Group>
       <Button type="submit" className=" btn-block mb-4">
         Enviar
