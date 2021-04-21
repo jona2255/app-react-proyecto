@@ -9,6 +9,7 @@ import ListOng from "./pages/ListOng";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Ong from "./pages/Ong";
+import AddOng from "./pages/AddOng";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
             </Route>
             <Route path="/listado-ongs" exact>
               <ListOng />
+            </Route>
+            <Route path="/introducir-ong" exact>
+              <AddOng />
             </Route>
             <Route path="/contacto" exact>
               <Contact />
