@@ -16,6 +16,9 @@ const NavbarHeader = () => {
               <Nav.Link href="/listado-ongs">Listado ONG</Nav.Link>
             </Nav.Item>
             <Nav.Item >
+              <Nav.Link href="/introducir-ong">Añadir ONG</Nav.Link>
+            </Nav.Item>
+            <Nav.Item >
               <Nav.Link href="/contacto">Contacto</Nav.Link>
             </Nav.Item>
           </Nav>

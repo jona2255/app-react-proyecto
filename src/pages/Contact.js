@@ -7,7 +7,7 @@ const Contact = () => {
       <h1 className="mb-5 text-center">Contacta con nosotros</h1>
       <Row className=" d-flex justify-content-center">
         <Col md={6}>
-          <p className="mb-4">Si quieres que tu organización esté en esta web, o si tienes cualquier duda, contacta con nosotros a través de este formulario.</p>
+          <p className="mb-4">Si tienes cualquier duda, contacta con nosotros a través de este formulario.</p>
           <FormContact />
         </Col>
       </Row>
