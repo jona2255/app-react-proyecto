@@ -6,12 +6,12 @@ import { useFetch } from "../hooks/useFetch";
 const FormOng = () => {
   const submitForm = async e => {
     e.preventDefault();
-    const resp = await fetch("https://api-proyecto-nodejs.herokuapp.com/ongs/ong", {
+    await fetch("https://api-proyecto-nodejs.herokuapp.com/ongs/ong", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(datosFormulario)
+      body: JSON.stringify(datosFormulario),
     });
   };
   const [datosFormulario, setDatosFormulario] = useState({
@@ -28,7 +28,6 @@ const FormOng = () => {
     active: false
   });
   const cambiarValores = e => {
-    console.log(e);
     switch (e.target.name) {
       case "nombreOng": setDatosFormulario({ ...datosFormulario, nombre: e.target.value });
         break;
@@ -46,14 +45,15 @@ const FormOng = () => {
         break;
       case "descripcionOng": setDatosFormulario({ ...datosFormulario, descripcion: e.target.value });
         break;
-      case "logoOng": setDatosFormulario({ ...datosFormulario, logo: e.target.value });
-        break;
       default:
         break;
     }
   };
-
+  const enviarLogo = e => {
+    setDatosFormulario({ ...datosFormulario, logo: e.target.files[0] });
+  };
   const seleccionarOds = (e) => {
+    setSelected(e);
     setDatosFormulario({ ...datosFormulario, ods: e });
   };
 
@@ -136,7 +136,7 @@ const FormOng = () => {
         <Form.Control name="descripcionOng" as="textarea" rows={3} onChange={cambiarValores} />
       </Form.Group>
       <Form.Group>
-        <Form.File id="logoOng" name="logoOng" label="Logo o imagen de la organización" onChange={cambiarValores} />
+        <Form.File type="file" id="logoOng" name="logoOng" label="Logo o imagen de la organización" onChange={enviarLogo} />
       </Form.Group>
       <Button type="submit" className=" btn-block mb-4">
         Enviar

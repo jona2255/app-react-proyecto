@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Ong from "./pages/Ong";
 import AddOng from "./pages/AddOng";
+import Admin from "./pages/Admin";
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
             </Route>
             <Route path="/ong/:idOng" exact>
               <Ong />
+            </Route>
+            <Route path="/admin" exact>
+              <Admin />
             </Route>
             <Route path="*" exact>
               <NotFound />
