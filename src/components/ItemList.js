@@ -12,16 +12,16 @@ const ItemList = props => {
   };
 
   return (
-    <Card className="mt-3 mb-3 pt-3 pb-3" onClick={irOng}>
+    <Card className="m-3 p-3" onClick={irOng}>
       <Row>
-        <Col md={3}>
+        <Col md={4} lg={3}>
           <Card.Img
+            className=""
             variant="top"
             src="https://firebasestorage.googleapis.com/v0/b/ongeitor.appspot.com/o/ods%2Ffin_pobreza.svg?alt=media"
-            width="180" height="180"
           />
         </Col>
-        <Col md={9}>
+        <Col md={8} lg={9}>
           <Card.Body>
             <Card.Title>{nombre}</Card.Title>
             <Card.Text>
