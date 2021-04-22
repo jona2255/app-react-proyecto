@@ -6,12 +6,22 @@ import { useFetch } from "../hooks/useFetch";
 const FormOng = () => {
   const submitForm = async e => {
     e.preventDefault();
+    const valuesID = datosFormulario.ods.map(odsValue => odsValue.value);
+    const datos = new FormData();
+    datos.append("nombre", datosFormulario.nombre);
+    datos.append("descripcion", datosFormulario.descripcion);
+    datos.append("direccion", datosFormulario.direccion);
+    datos.append("codigo_postal", datosFormulario.codigo_postal);
+    datos.append("telefono", datosFormulario.telefono);
+    datos.append("correo", datosFormulario.correo);
+    datos.append("pagina_web", datosFormulario.pagina_web);
+    datos.append("ods", valuesID);
+    datos.append("logo", datosFormulario.logo);
+    datos.append("provincia", datosFormulario.provincia);
+    datos.append("activo", datosFormulario.activo);
     await fetch("https://api-proyecto-nodejs.herokuapp.com/ongs/ong", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(datosFormulario),
+      body: datos,
     });
   };
   const [datosFormulario, setDatosFormulario] = useState({
@@ -25,7 +35,7 @@ const FormOng = () => {
     ods: null,
     logo: null,
     provincia: null,
-    active: false
+    activo: false
   });
   const cambiarValores = e => {
     switch (e.target.name) {
