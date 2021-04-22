@@ -34,7 +34,7 @@ const Login = () => {
   return (
     <>
       <h1>Iniciar Sesión</h1>
-      <Form className="w-50 mt-5">
+      <Form className="w-50 mt-5" onSubmit={acceder}>
         <Form.Group>
           <Form.Label>Email</Form.Label>
           <Form.Control name="emailLogin" type="email" />

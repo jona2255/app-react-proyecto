@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useFetch } from "../hooks/useFetch";
-import ItemList from "./ItemList";
+import ActiveOng from "./ActiveOng";
 
 const AdminOng = () => {
 
@@ -13,7 +13,7 @@ const AdminOng = () => {
       <h1>Listado de ONGs sin activar</h1>
       {
         datos && datos.datos.map(ongs => (
-          <ItemList key={ongs._id} ongs={ongs}></ItemList>
+          <ActiveOng key={ongs._id} ongs={ongs}></ActiveOng>
         ))
       }
     </>

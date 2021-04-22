@@ -11,44 +11,54 @@ import NotFound from "./pages/NotFound";
 import Ong from "./pages/Ong";
 import AddOng from "./pages/AddOng";
 import Admin from "./pages/Admin";
-import AdminOng from "./components/AdminOng";
+import { useEffect, useState } from "react";
+import jwt_decode from "jwt-decode";
+import UserContext from "./contexts/UserContext";
+
 
 function App() {
+  const [infoUsuario, setInfoUsuario] = useState({});
+  const token = localStorage.getItem("token-acceso-api");
+  useEffect(() => {
+    setInfoUsuario(token ? jwt_decode(token) : {});
+  }, [token]);
   return (
-    <Router>
-      <header >
-        <NavbarHeader />
-        <CarouselHeader />
-      </header >
+    <UserContext.Provider value={infoUsuario}>
+      <Router>
+        <header >
+          <NavbarHeader />
+          <CarouselHeader />
+        </header >
 
-      <main className="mt-5">
-        <Container >
-          <Switch>
-            <Route path="/" exact>
-              <HomePage />
-            </Route>
-            <Route path="/listado-ongs" exact>
-              <ListOng />
-            </Route>
-            <Route path="/introducir-ong" exact>
-              <AddOng />
-            </Route>
-            <Route path="/contacto" exact>
-              <Contact />
-            </Route>
-            <Route path="/ong/:idOng" exact>
-              <Ong />
-            </Route>
-            <Route path="/admin" exact>
-              <Admin />
-            </Route>
-            <Route path="*" exact>
-              <NotFound />
-            </Route>
-          </Switch>
-        </Container>
-      </main>
-    </Router>
+        <main className="mt-5">
+          <Container >
+            <Switch>
+              <Route path="/" exact>
+                <HomePage />
+              </Route>
+              <Route path="/listado-ongs" exact>
+                <ListOng />
+              </Route>
+              <Route path="/introducir-ong" exact>
+                <AddOng />
+              </Route>
+              <Route path="/contacto" exact>
+                <Contact />
+              </Route>
+              <Route path="/ong/:idOng" exact>
+                <Ong />
+              </Route>
+              <Route path="/admin" exact>
+                <Admin />
+              </Route>
+              <Route path="*" exact>
+                <NotFound />
+              </Route>
+            </Switch>
+          </Container>
+        </main>
+      </Router>
+    </UserContext.Provider>
   );
 }
 
