@@ -1,19 +1,24 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useHistory } from "react-router";
 import { useFetch } from "../hooks/useFetch";
-import { useForm } from "../hooks/useForm";
 
 const Login = () => {
   const history = useHistory();
   const { datos, pideDatos } = useFetch();
-  const { datosForm, modificarDatos } = useForm({
-    email: "",
+  const [datosForm, modificarDatos] = useState({
+    correo: "",
     password: ""
   });
+  const cambiarValores = e => {
+    modificarDatos({
+      ...datosForm,
+      [e.target.name]: e.target.value
+    });
+  };
   const acceder = e => {
     e.preventDefault();
-    pideDatos("http://localhost:5000/usuarios/login", {
+    pideDatos(`${process.env.REACT_APP_API}usuarios/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -27,7 +32,7 @@ const Login = () => {
         console.log("No existe el usuario");
       } else if (datos.token) {
         localStorage.setItem("token-acceso-api", datos.token);
-        history.push("/admin");
+        history.go(0);
       }
     }
   }, [datos, history]);
@@ -37,11 +42,11 @@ const Login = () => {
       <Form className="w-50 mt-5" onSubmit={acceder}>
         <Form.Group>
           <Form.Label>Email</Form.Label>
-          <Form.Control name="emailLogin" type="email" />
+          <Form.Control name="correo" type="email" onChange={cambiarValores} />
         </Form.Group>
         <Form.Group>
           <Form.Label>Contraseña</Form.Label>
-          <Form.Control name="passwordLogin" type="password" />
+          <Form.Control name="password" type="password" onChange={cambiarValores} />
         </Form.Group>
         <Form.Group>
           <Button type="submit" className=" btn-block mb-4 ">Enviar</Button>

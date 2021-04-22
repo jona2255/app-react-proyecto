@@ -1,9 +1,13 @@
-import { Card, Col, Row } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
+import { Card, Col, Form, Row } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useContext } from "react";
+import ListOngContext from "../contexts/ListOngContext";
 
 const ActiveOng = props => {
+  const { activados, setActivados } = useContext(ListOngContext);
   const { ongs } = props;
   const {
+    _id,
     logo,
     nombre,
     direccion,
@@ -15,17 +19,20 @@ const ActiveOng = props => {
     provincia,
     ods } = ongs;
 
+  const activar = () => {
+    setActivados([...activados, _id]);
+  };
   return (
     <Card className="m-3 p-3">
-      <Row>
-        <Col md={4} lg={3}>
+      <Row className="justify-content-center">
+        <Col md={4} lg={4}>
           <Card.Img
             className=""
             variant="top"
             src={logo}
           />
         </Col>
-        <Col md={8} lg={9}>
+        <Col md={4} lg={4} >
           <Card.Body>
             <Card.Title>{nombre}</Card.Title>
             <Card.Text>
@@ -59,14 +66,11 @@ const ActiveOng = props => {
           </Card.Body>
         </Col>
       </Row>
+      <Form.Group >
+        <Form.Check type="checkbox" label="Activar" onChange={activar} />
+      </Form.Group>
     </Card>
   );
 };
 
-/* ItemList.propTypes = {
-  ong: PropTypes.shape({
-    total: PropTypes.number.isRequired,
-    datos:
-  }).isRequired
-}; */
 export default ActiveOng;

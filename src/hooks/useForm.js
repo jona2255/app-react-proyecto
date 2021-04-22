@@ -5,7 +5,7 @@ export const useForm = datosFormInicial => {
   const modificarDatos = e => {
     setDatosForm({
       ...datosForm,
-      [e.target.name]: e.target.value
+      [e.name]: e.value
     });
   };
   return { datosForm, modificarDatos };

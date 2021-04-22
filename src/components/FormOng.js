@@ -11,7 +11,7 @@ const FormOng = () => {
     const valuesID = datosFormulario.ods.map(odsValue => odsValue.value);
     const datos = new FormData();
     añadirDatos(datos, valuesID);
-    const datosFetch = await fetch("https://api-proyecto-nodejs.herokuapp.com/ongs/ong", {
+    const datosFetch = await fetch(`${process.env.REACT_APP_API}ongs/ong`, {
       method: "POST",
       body: datos,
     });
