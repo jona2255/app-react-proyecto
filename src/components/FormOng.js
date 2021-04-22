@@ -2,12 +2,43 @@ import { useEffect, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import MultiSelect from "react-multi-select-component";
 import { useFetch } from "../hooks/useFetch";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const FormOng = () => {
   const submitForm = async e => {
     e.preventDefault();
     const valuesID = datosFormulario.ods.map(odsValue => odsValue.value);
     const datos = new FormData();
+    añadirDatos(datos, valuesID);
+    const datosFetch = await fetch("https://api-proyecto-nodejs.herokuapp.com/ongs/ong", {
+      method: "POST",
+      body: datos,
+    });
+    const error = await datosFetch.json();
+    if (error.error) {
+      toast.error("Error al enviar", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      toast.success("Enviado Correctamente", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
+  const añadirDatos = (datos, valuesID) => {
     datos.append("nombre", datosFormulario.nombre);
     datos.append("descripcion", datosFormulario.descripcion);
     datos.append("direccion", datosFormulario.direccion);
@@ -19,10 +50,6 @@ const FormOng = () => {
     datos.append("logo", datosFormulario.logo);
     datos.append("provincia", datosFormulario.provincia);
     datos.append("activo", datosFormulario.activo);
-    await fetch("https://api-proyecto-nodejs.herokuapp.com/ongs/ong", {
-      method: "POST",
-      body: datos,
-    });
   };
   const [datosFormulario, setDatosFormulario] = useState({
     nombre: null,
@@ -151,6 +178,18 @@ const FormOng = () => {
       <Button type="submit" className=" btn-block mb-4">
         Enviar
       </Button>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </Form>
   );
 };

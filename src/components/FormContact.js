@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const FormContact = () => {
   const [datosFormulario, setDatosFormulario] = useState({
@@ -24,13 +26,35 @@ const FormContact = () => {
   };
   const enviarCorreo = async (e) => {
     e.preventDefault();
-    const resp = await fetch("https://api-proyecto-nodejs.herokuapp.com/incidence", {
+    const datosFetch = await fetch("https://api-proyecto-nodejs.herokuapp.com/incidence", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(datosFormulario)
     });
+    const error = await datosFetch.json();
+    if (error.error) {
+      toast.error("Error al enviar", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      toast.success("Enviado Correctamente", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   };
   return (
     <Form onSubmit={enviarCorreo}>
@@ -55,6 +79,17 @@ const FormContact = () => {
       <Button type="submit" className=" btn-block mb-4">
         Enviar
       </Button>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </Form>
   );
 };

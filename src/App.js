@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import Ong from "./pages/Ong";
 import AddOng from "./pages/AddOng";
 import Admin from "./pages/Admin";
+import AdminOng from "./components/AdminOng";
 
 function App() {
   return (
