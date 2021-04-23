@@ -11,10 +11,10 @@ const Admin = () => {
   const { pideDatos } = useFetch();
   const history = useHistory();
 
-  const activarOngs = (e) => {
+  const activarOngs = async (e) => {
     e.preventDefault();
     const listaIds = { ids: activados };
-    pideDatos(`${process.env.REACT_APP_API}/ong/ong`, {
+    await pideDatos(`${process.env.REACT_APP_API}ongs/ong/`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
@@ -29,9 +29,9 @@ const Admin = () => {
         localStorage.getItem("token-acceso-api")
           ?
           <Form onSubmit={activarOngs} className="">
-            <AdminOng className="" />
+            <AdminOng />
             <Row >
-              <Col className="">
+              <Col>
                 <Button type="submit" className="float-right m-5" >Enviar</Button>
               </Col>
             </Row>
