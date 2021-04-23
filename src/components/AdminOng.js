@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Button, Col, Row } from "react-bootstrap";
 import { useFetch } from "../hooks/useFetch";
 import ActiveOng from "./ActiveOng";
 
@@ -15,15 +16,24 @@ const AdminOng = () => {
   if (datos && datos.error) {
     localStorage.clear();
   }
+  const bajar = () => {
+    const element = document.getElementById("enviar");
+    element.scrollIntoView({ behavior: "smooth" });
+  };
   return (
-    <>
-      <h1>Listado de ONGs sin activar</h1>
-      {
-        datos && datos.datos.map(ongs => (
-          <ActiveOng key={ongs._id} ongs={ongs}></ActiveOng>
-        ))
-      }
-    </>
+    <Row>
+      <Col sm={11} md={11} lg={11}>
+        <h1>Listado de ONGs sin activar</h1>
+        {
+          datos && datos.datos.map(ongs => (
+            <ActiveOng key={ongs._id} ongs={ongs}></ActiveOng>
+          ))
+        }
+      </Col>
+      <Col sm={1} md={1} lg={1} className="align-self-center" >
+        <Button id="enviar" variant="light" onClick={bajar}>⬇</Button>
+      </Col>
+    </Row>
   );
 };
 
