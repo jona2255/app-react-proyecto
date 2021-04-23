@@ -16,7 +16,10 @@ const AdminOng = () => {
   if (datos && datos.error) {
     localStorage.clear();
   }
-  const bajar = () => {
+  const refreshToken = () => localStorage.clear();
+
+  const bajar = (e) => {
+    e.preventDefault();
     const element = document.getElementById("enviar");
     element.scrollIntoView({ behavior: "smooth" });
   };
@@ -25,9 +28,9 @@ const AdminOng = () => {
       <Col sm={11} md={11} lg={11}>
         <h1>Listado de ONGs sin activar</h1>
         {
-          datos && datos.datos.map(ongs => (
+          datos && datos.datos ? datos.datos.map(ongs => (
             <ActiveOng key={ongs._id} ongs={ongs}></ActiveOng>
-          ))
+          )) : <h2>Refresca la página</h2>
         }
       </Col>
       <Col sm={1} md={1} lg={1} className="align-self-center" >
