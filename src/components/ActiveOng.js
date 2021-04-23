@@ -2,8 +2,10 @@ import { Card, Col, Form, Row, Button, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useContext } from "react";
 import ListOngContext from "../contexts/ListOngContext";
+import { useFetch } from "../hooks/useFetch";
 
 const ActiveOng = props => {
+  const { pideDatos } = useFetch();
   const { activados, setActivados } = useContext(ListOngContext);
   const { ongs } = props;
   const {
@@ -21,6 +23,16 @@ const ActiveOng = props => {
 
   const activar = () => {
     setActivados([...activados, _id]);
+  };
+  const borrar = async () => {
+    await pideDatos(`${process.env.REACT_APP_API}ongs/ong/`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ id: _id })
+    });
+    history.go(0);
   };
   return (
     <Card className="m-3 p-3">
@@ -53,13 +65,13 @@ const ActiveOng = props => {
             <Card.Text>
               {pagina_web}
             </Card.Text>
-            <Card.Img>
+            <Card.Text>
               {
                 ods.map(elemento => (
-                  <Image className="imagen-ods-ong" src={`${elemento.imagen} `} />
+                  <Image key={elemento._id} className="imagen-ods-ong" src={`${elemento.imagen} `} />
                 ))
               }
-            </Card.Img>
+            </Card.Text>
             <Card.Text>
               {descripcion}
             </Card.Text>
@@ -67,7 +79,7 @@ const ActiveOng = props => {
         </Col>
         <Row>
           <Col className="align-self-end">
-            <Button variant="danger" type="submit" onClick={activar} className="mb-5">Borrar</Button>
+            <Button variant="danger" type="submit" onClick={borrar} className="mb-5">Borrar</Button>
             <Form.Check type="checkbox" label="Activar" onChange={activar} />
           </Col>
         </Row>
