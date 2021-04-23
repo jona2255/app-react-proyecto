@@ -9,6 +9,7 @@ const ListOds = () => {
     pideDatos(`${process.env.REACT_APP_API}ods`);
   }, [pideDatos]);
 
+  console.log(datos);
   return (
     <>
       <h2 className="mb-5">Listado de ODS</h2>
@@ -17,9 +18,9 @@ const ListOds = () => {
           datos
           && datos.datos.map(ods => (
             <Card key={ods._id}>
-              <Card.Img variant="top" src="https://firebasestorage.googleapis.com/v0/b/ongeitor.appspot.com/o/ods%2Ffin_pobreza.svg?alt=media" />
+              <Card.Img variant="top" src={ods.imagen} className="imagen-ods-lista" />
               <Card.Body>
-                <Card.Title>{ods.imagen}</Card.Title>
+                <Card.Title>{ods.nombre}</Card.Title>
                 <Card.Text>
                   {ods.descripcion}
                 </Card.Text>

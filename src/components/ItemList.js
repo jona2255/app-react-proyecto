@@ -18,7 +18,7 @@ const ItemList = props => {
           <Card.Img
             className=""
             variant="top"
-            src="https://firebasestorage.googleapis.com/v0/b/ongeitor.appspot.com/o/ods%2Ffin_pobreza.svg?alt=media"
+            src={logo}
           />
         </Col>
         <Col md={8} lg={9}>

@@ -65,10 +65,11 @@ const ActiveOng = props => {
             </Card.Text>
           </Card.Body>
         </Col>
+        <Form.Group className="row ">
+          <Form.Check type="checkbox" label="Activar" onChange={activar} className="col  align-self-end" />
+        </Form.Group>
       </Row>
-      <Form.Group >
-        <Form.Check type="checkbox" label="Activar" onChange={activar} />
-      </Form.Group>
+
     </Card>
   );
 };

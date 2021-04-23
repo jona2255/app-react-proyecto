@@ -6,7 +6,7 @@ const AdminOng = () => {
 
   const { datos, pideDatos } = useFetch();
   useEffect(() => {
-    pideDatos(`${process.env.REACT_APP_API}ongs?activo=false`);
+    pideDatos(`${process.env.REACT_APP_API}ongs`);
   }, [pideDatos]);
   return (
     <>

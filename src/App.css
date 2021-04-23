@@ -3,10 +3,17 @@
       .carousel-item,
       .carousel-item.active {
         height: 40vh;
-        margin-top: -58.59px;
+        margin-top: -58.6px;
 
       }
-
+@media (max-width: 768px) {
+ .intro-carousel,
+      .carousel-inner,
+      .carousel-item,
+      .carousel-item.active {
+        margin-top: -80px;
+      }
+}
 .navbar .nav-link {
   color: #fff !important;
 }
@@ -26,4 +33,13 @@
 }
 .negrita{
   font-weight: bold;
+}
+.imagen-ods-ong{
+  width: 75px;
+  height: 75px;
+  margin-right: 5px;
+}
+.imagen-ods-lista{
+  width: 214px;
+  height: 214px;
 }
