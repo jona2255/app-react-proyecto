@@ -1,4 +1,4 @@
-import { Card, Col, Form, Row } from "react-bootstrap";
+import { Card, Col, Form, Row, Button, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useContext } from "react";
 import ListOngContext from "../contexts/ListOngContext";
@@ -53,21 +53,25 @@ const ActiveOng = props => {
             <Card.Text>
               {pagina_web}
             </Card.Text>
-            <Card.Text>
+            <Card.Img>
               {
                 ods.map(elemento => (
-                  ods.indexOf(elemento) === ods.length - 1 ? `${elemento.nombre}` : `${elemento.nombre}, `
+                  <Image className="imagen-ods-ong" src={`${elemento.imagen} `} />
                 ))
               }
-            </Card.Text>
+            </Card.Img>
             <Card.Text>
               {descripcion}
             </Card.Text>
           </Card.Body>
         </Col>
-        <Form.Group className="row ">
-          <Form.Check type="checkbox" label="Activar" onChange={activar} className="col  align-self-end" />
-        </Form.Group>
+        <Row>
+          <Col className="align-self-end">
+            <Button variant="danger" type="submit" onClick={activar} className="mb-5">Borrar</Button>
+            <Form.Check type="checkbox" label="Activar" onChange={activar} />
+          </Col>
+        </Row>
+
       </Row>
 
     </Card>
