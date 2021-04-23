@@ -22,11 +22,14 @@ const Ong = () => {
           </Col>
           <Col className="mb-5">
             <h1>{datos.nombre}</h1>
-            <p><span className="negrita">Dirección - </span>{datos.direccion}</p>
+            <p>
+              <span className="negrita">Dirección - </span>
+              <a href={`https://www.google.es/maps/place/${datos.direccion.replaceAll(" ", "+").replace("C/+", "")}`}>{datos.direccion}</a>
+            </p>
             <p><span className="negrita">Código Postal - </span>{datos.codigo_postal}</p>
             <p><span className="negrita">Provincia - </span>{datos.provincia}</p>
-            <p><span className="negrita">Teléfono - </span>{datos.telefono}</p>
-            <p><span className="negrita">Email - </span>{datos.correo}</p>
+            <p><span className="negrita">Teléfono - </span><a href={`tel:${datos.telefono}`}>{datos.telefono}</a></p>
+            <p><span className="negrita">Email - </span><a href={`mailto:${datos.correo}`}>{datos.correo}</a></p>
             <p><span className="negrita">Página Web - </span><a href={datos.pagina_web}>{datos.pagina_web}</a></p>
             <p><span className="negrita">ODS </span>{
               datos.ods.map(ods => (

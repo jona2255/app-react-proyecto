@@ -8,8 +8,10 @@ const ItemList = props => {
   const history = useHistory();
   const irOng = () => {
     history.push(`/ong/${props.ongs._id}`);
-
   };
+
+  const direccionMap = direccion.replaceAll(" ", "+").replace("C/+", "");
+
   return (
     <Card className="m-3 p-3" onClick={irOng}>
       <Row>
@@ -24,13 +26,13 @@ const ItemList = props => {
           <Card.Body>
             <Card.Title>{nombre}</Card.Title>
             <Card.Text>
-              {direccion}
+              <a href={`https://www.google.es/maps/place/${direccionMap}`}>{direccion}</a>
             </Card.Text>
             <Card.Text>
-              {telefono}
+              <a href={`tel:${telefono}`}>{telefono}</a>
             </Card.Text>
             <Card.Text>
-              {correo}
+              <a href={`mailto:${correo}`}>{correo}</a>
             </Card.Text>
             <Card.Text>
               {

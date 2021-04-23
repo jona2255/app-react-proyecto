@@ -3,9 +3,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useContext } from "react";
 import ListOngContext from "../contexts/ListOngContext";
 import { useFetch } from "../hooks/useFetch";
+import { useHistory } from "react-router";
 
 const ActiveOng = props => {
   const { pideDatos } = useFetch();
+  const history = useHistory();
+
   const { activados, setActivados } = useContext(ListOngContext);
   const { ongs } = props;
   const {
@@ -24,7 +27,8 @@ const ActiveOng = props => {
   const activar = () => {
     setActivados([...activados, _id]);
   };
-  const borrar = async () => {
+  const borrar = async (e) => {
+    e.preventDefault();
     await pideDatos(`${process.env.REACT_APP_API}ongs/ong/`, {
       method: "DELETE",
       headers: {
