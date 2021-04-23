@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Card, CardColumns } from "react-bootstrap";
+import { Card, CardColumns, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 import { useFetch } from "../hooks/useFetch";
 
 const ListOds = () => {
@@ -13,22 +13,27 @@ const ListOds = () => {
   return (
     <>
       <h2 className="mb-5">Listado de ODS</h2>
-      <CardColumns>
-        {
-          datos
-          && datos.datos.map(ods => (
-            <Card key={ods._id}>
-              <Card.Img variant="top" src={ods.imagen} className="imagen-ods-lista" />
-              <Card.Body>
-                <Card.Title>{ods.nombre}</Card.Title>
-                <Card.Text>
-                  {ods.descripcion}
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          ))
-        }
-      </CardColumns>
+      <ListGroup>
+        <Row>
+          {
+            datos
+            && datos.datos.map(ods => (
+              <Col key={ods._id} md={4}>
+                <Card className="card-ods" key={ods._id}>
+                  <Card.Img variant="top" src={ods.imagen} />
+                  <Card.Body>
+                    <Card.Text>
+                      {
+                        ods.descripcion
+                      }
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))
+          }
+        </Row>
+      </ListGroup>
     </>
   );
 };
