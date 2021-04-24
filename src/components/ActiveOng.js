@@ -32,7 +32,8 @@ const ActiveOng = props => {
     await pideDatos(`${process.env.REACT_APP_API}ongs/ong/`, {
       method: "DELETE",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("token-acceso-api")}`
       },
       body: JSON.stringify({ id: _id })
     });

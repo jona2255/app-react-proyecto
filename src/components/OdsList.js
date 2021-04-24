@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Card, CardColumns, Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
+import { Card, Col, ListGroup, Row } from "react-bootstrap";
 import { useFetch } from "../hooks/useFetch";
 
 const ListOds = () => {
@@ -8,8 +8,6 @@ const ListOds = () => {
   useEffect(() => {
     pideDatos(`${process.env.REACT_APP_API}ods`);
   }, [pideDatos]);
-
-  console.log(datos);
   return (
     <>
       <h2 className="mb-5">Listado de ODS</h2>
