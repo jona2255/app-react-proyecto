@@ -29,7 +29,6 @@ const Login = () => {
   useEffect(() => {
     if (datos) {
       if (datos.error) {
-        console.log("No existe el usuario");
       } else if (datos.token) {
         localStorage.setItem("token-acceso-api", datos.token);
         history.go(0);

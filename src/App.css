@@ -43,3 +43,8 @@
   height: 93%;
   margin-bottom: 20px;
 }
+.campos-obligatorios{
+  color: grey;
+  font-size: small;
+
+}

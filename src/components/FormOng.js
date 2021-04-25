@@ -123,7 +123,7 @@ const FormOng = () => {
   return (
     <Form onSubmit={submitForm}>
       <Form.Group>
-        <Form.Label className="form-label" htmlFor="nombreOng">Nombre</Form.Label>
+        <Form.Label className="form-label" htmlFor="nombreOng">Nombre *</Form.Label>
         <Form.Control type="text" id="nombreOng" name="nombreOng" className="form-control" onChange={cambiarValores} />
       </Form.Group>
       <Form.Group>
@@ -132,7 +132,7 @@ const FormOng = () => {
       </Form.Group>
       <Row className=" mb-4">
         <Col className="form-outline" md={8}>
-          <Form.Label className="form-label" htmlFor="provinciaOng">Provincia</Form.Label>
+          <Form.Label className="form-label" htmlFor="provinciaOng">Provincia *</Form.Label>
           <Form.Control type="text" id="provinciaOng" name="provinciaOng" className="form-control" onChange={cambiarValores} />
         </Col>
         <Col className="form-outline" md={4}>
@@ -145,15 +145,15 @@ const FormOng = () => {
         <Form.Control type="text" id="telefonoOng" name="telefonoOng" className="form-control" onChange={cambiarValores} />
       </Form.Group>
       <Form.Group controlId="emailOng">
-        <Form.Label>Email</Form.Label>
+        <Form.Label>Email *</Form.Label>
         <Form.Control name="emailOng" type="email" onChange={cambiarValores} />
       </Form.Group>
       <Form.Group >
-        <Form.Label className="form-label" htmlFor="webOng">Página Web</Form.Label>
+        <Form.Label className="form-label" htmlFor="webOng">Página Web *</Form.Label>
         <Form.Control type="text" id="webOng" name="webOng" className="form-control" onChange={cambiarValores} />
       </Form.Group>
       <Form.Group >
-        <Form.Label className="form-label">ODS que realiza</Form.Label>
+        <Form.Label className="form-label">ODS que realiza *</Form.Label>
         {
           ods ?
             <MultiSelect
@@ -175,6 +175,7 @@ const FormOng = () => {
       <Form.Group>
         <Form.File type="file" id="logoOng" name="logoOng" label="Logo o imagen de la organización" onChange={enviarLogo} />
       </Form.Group>
+      <p className="campos-obligatorios">Los campos con un * son obligatorios</p>
       <Button type="submit" className=" btn-block mb-4">
         Enviar
       </Button>

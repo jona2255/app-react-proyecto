@@ -10,11 +10,11 @@ const HomeDescription = () => {
       </Col>
 
       <Col md={6} className="gx-5 mb-4">
-        <h2>¿Qué es ONGeitor?</h2>
+        <h2>¿Qué es Rodster?</h2>
         <p className="text-muted">
-          <span className="negrita">ONGeitor</span> te permite encontrar las <span className="negrita">ONGs </span>
-          de Barcelona que cumplen con algún <span className="negrita">ODS</span> de manera fácil y sencilla.
-          ONGeitor también te permite buscar las ONGs en base al nombre, la provincia o el ODS que realiza.
+          <span className="negrita">Rodster</span> te permite encontrar las <span className="negrita">ONGs </span>
+          de España que cumplen con algún <span className="negrita">ODS</span> de manera fácil y sencilla.
+          Rodster también te permite buscar las ONGs en base al nombre, la provincia o el ODS que realiza.
         </p>
         <h3>¿Qué es un ODS?</h3>
         <p className="text-muted">

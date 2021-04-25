@@ -14,7 +14,6 @@ const TakeOds = () => {
   const [selected, setSelected] = useState([]);
 
   const filtrarOds = e => {
-    console.log(e);
     setSelected(e);
     setOdsBusqueda(`ods=${e.map(ods => ods.value)}`);
   };
