@@ -26,7 +26,7 @@ const AdminOng = () => {
   return (
     <Row>
       <Col sm={11} md={11} lg={11}>
-        <h1>Listado de ONGs sin activar</h1>
+        <h1>Listado de organizaciones sin activar</h1>
         {
           datos && datos.datos ? datos.datos.map(ongs => (
             <ActiveOng key={ongs._id} ongs={ongs}></ActiveOng>

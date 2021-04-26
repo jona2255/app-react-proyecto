@@ -13,13 +13,13 @@ const NavbarHeader = () => {
               <Nav.Link href="/">Inicio</Nav.Link>
             </Nav.Item>
             <Nav.Item >
-              <Nav.Link href="/listado-ongs">Listado ONG</Nav.Link>
+              <Nav.Link href="/listado-ongs">Listado de organizaciones</Nav.Link>
             </Nav.Item>
             <Nav.Item >
-              <Nav.Link href="/introducir-ong">Añadir ONG</Nav.Link>
+              <Nav.Link href="/introducir-ong">Añadir Organizacion</Nav.Link>
             </Nav.Item>
             <Nav.Item >
-              <Nav.Link href="/admin">Administrar ONG</Nav.Link>
+              <Nav.Link href="/admin">Administrar Organizaciones</Nav.Link>
             </Nav.Item>
             <Nav.Item >
               <Nav.Link href="/contacto">Contacto</Nav.Link>
